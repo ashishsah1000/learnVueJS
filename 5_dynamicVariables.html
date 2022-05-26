@@ -1,0 +1,127 @@
+<!-- 1 unserstand the basics of mounting and variables in vueJS -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Vue 3 - Chapter 1</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <script src="https://unpkg.com/vue@3"></script>
+  <style>
+    body {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    button {
+      margin: 5px 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- usefull code -->
+  <div id="app" >
+    
+    <ul v-show="show">
+        <li v-for="movie in movies">
+            <h3>{{movie.title}} | {{movie.author}}</h3>
+            <h4>image tag using :src</h4>
+            <img :src="movie.img" :alt="">
+        </li>
+    </ul>
+    <button class="btn btn-danger" @click="toggleShow">Toggle Movies !</button>
+    <h4>using v-bind:href in anchor tag <a v-bind:href="url">Ashish | github</a>
+    </h4>
+    <h4>using :href in anchor tag <a :href="url">Ashish | github</a></h4>
+  </div>
+
+
+  <!-- all the javascript that can be seperated in diffrent file -->
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+            show:true,
+            url:"https://github.com/ashishsah1000",
+          movies:[
+              {title:"Harry Putter",author:"Mahesh Baat",img:"https://picsum.photos/200/200"},
+              {title:"Lord of Kings",author:"Crsitopher Nolan", img:"https://picsum.photos/seed/picsum/200/200"},
+              {title:"Harry Putter Putter",author:"Alya Baat",img:"https://picsum.photos/200/200?grayscale"},
+          ]
+        }
+      },
+      methods: {
+        toggleShow() {
+          this.show = !this.show // this is req for the variables
+        }
+      }
+    })
+    app.mount("#app");
+  </script>
+
+
+
+
+
+
+
+<!-- this area is for displaying code in browser -->
+
+
+
+
+
+
+  <textarea name="html_code" disabled id="" cols="100" rows="12">
+    <div id="app" >
+    
+        <ul v-show="show">
+            <li v-for="movie in movies">
+                <h3>{{movie.title}} | {{movie.author}}</h3>
+                <h4>image tag using :src</h4>
+                <img :src="movie.img" :alt="">
+            </li>
+        </ul>
+        <button class="btn btn-danger" @click="toggleShow">Toggle Movies !</button>
+        <h4>using v-bind:href in anchor tag <a v-bind:href="url">Ashish | github</a>
+        </h4>
+        <h4>using :href in anchor tag <a :href="url">Ashish | github</a></h4>
+      </div>
+    
+</textarea>
+  <blockquote>
+    <pre>
+
+      <code>
+        const app = Vue.createApp({
+            data() {
+              return {
+                  show:true,
+                  url:"https://github.com/ashishsah1000",
+                movies:[
+                    {title:"Harry Putter",author:"Mahesh Baat",img:"https://picsum.photos/200/200"},
+                    {title:"Lord of Kings",author:"Crsitopher Nolan", img:"https://picsum.photos/seed/picsum/200/200"},
+                    {title:"Harry Putter Putter",author:"Alya Baat",img:"https://picsum.photos/200/200?grayscale"},
+                ]
+              }
+            },
+            methods: {
+              toggleShow() {
+                this.show = !this.show // this is req for the variables
+              }
+            }
+          })
+          app.mount("#app");
+      </code>
+    </pre>
+  </blockquote>
+
+
+</body>
+
+</html>
